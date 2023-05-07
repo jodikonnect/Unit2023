@@ -8,6 +8,15 @@
 		h1 {
 			text-align: left;
 		}
+		table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+		th, td {
+			padding: 10px;
+			text-align: center;
+			border: 1px solid black;
+		}
 		img {
 			width: 100px;
 			height: 100px;
@@ -17,33 +26,53 @@
 <body>
 	<h1>Company Careers</h1>
 	
-	<ul>
-		<!-- Walmart -->
-		<li>
-			<a href="https://careers.walmart.com" target="_blank">
-				<img src="walmart.svg" alt="Walmart Logo" />
-				<span>Walmart</span>
-			</a>
-		</li>
+	<table>
+		<thead>
+			<tr>
+				<th>Company Name</th>
+				<th>Recruiter Name</th>
+				<th>Job Title</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Walmart -->
+			<tr>
+				<td>
+					<a href="https://careers.walmart.com" target="_blank">
+						<img src="walmart.svg" alt="Walmart Logo" />
+						<span>Walmart</span>
+					</a>
+				</td>
+				<td>John Doe</td>
+				<td>Software Engineer</td>
+			</tr>
 
-		<!-- Airbnb -->
-		<li>
-			<a href="https://careers.airbnb.com" target="_blank">
-				<img src="airbnb.svg" alt="Airbnb Logo" />
-				<span>Airbnb</span>
-			</a>
-		</li>
+			<!-- Airbnb -->
+			<tr>
+				<td>
+					<a href="https://careers.airbnb.com" target="_blank">
+						<img src="airbnb.svg" alt="Airbnb Logo" />
+						<span>Airbnb</span>
+					</a>
+				</td>
+				<td>Jane Smith</td>
+				<td>Product Manager</td>
+			</tr>
 
-		<!-- Twilio -->
-		<li>
-			<a href="https://www.twilio.com/company/jobs" target="_blank">
-				<img src="twilio.svg" alt="Twilio Logo" />
-				<span>Twilio</span>
-			</a>
-		</li>
-	</ul>
-
-	<!-- Add more list items for other companies -->
+			<!-- Twilio -->
+			<tr>
+				<td>
+					<a href="https://www.twilio.com/company/jobs" target="_blank">
+						<img src="twilio.svg" alt="Twilio Logo" />
+						<span>Twilio</span>
+					</a>
+				</td>
+				<td>Mark Johnson</td>
+				<td>Technical Writer</td>
+			</tr>
+			<!-- Add more table rows for other companies -->
+		</tbody>
+	</table>
 
 </body>
 </html>
