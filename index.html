@@ -48,8 +48,10 @@
 					<a href="https://careers.walmart.com" target="_blank">Walmart</a>
 				</td>
 				<td>John Smith</td>
-				<td><input type="text" id="walmart_job_title"></td>
-				<td><input type="text" id="walmart_poc"></td>
+				<td>Software Engineer</td>
+				<td>
+					<input type="text" class="poc-input" data-company="walmart" value="">
+				</td>
 				<td>
 					<a href="https://careers.walmart.com" target="_blank">
 						<img src="walmart.svg" alt="Walmart Logo" />
@@ -64,8 +66,10 @@
 					<a href="https://careers.airbnb.com/positions/" target="_blank">Airbnb</a>
 				</td>
 				<td>Jane Doe</td>
-				<td><input type="text" id="airbnb_job_title"></td>
-				<td><input type="text" id="airbnb_poc"></td>
+				<td>Marketing Manager</td>
+				<td>
+					<input type="text" class="poc-input" data-company="airbnb" value="">
+				</td>
 				<td>
 					<a href="https://careers.airbnb.com/positions/" target="_blank">
 						<img src="airbnb.svg" alt="Airbnb Logo" />
@@ -80,13 +84,19 @@
 					<a href="https://www.twilio.com/company/jobs" target="_blank">Twilio</a>
 				</td>
 				<td>Bob Johnson</td>
-				<td><input type="text" id="twilio_job_title"></td>
-				<td><input type="text" id="twilio_poc"></td>
+				<td>Product Manager</td>
+				<td>
+					<input type="text" class="poc-input" data-company="twilio" value="">
+				</td>
 				<td>
 					<a href="https://www.twilio.com/company/jobs" target="_blank">
 						<img src="twilio.svg" alt="Twilio Logo" />
 					</a>
 				</td>
+
+			
+
+
 				<td id="twilio_jobs"></td>
 			</tr>
 			
@@ -95,6 +105,82 @@
 		</tbody>
 	</table>
 
-	<script src="script.js"></script>
+
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		// Retrieve POC data
+		$(document).ready(function() {
+			// Loop through table rows
+			$('table#jobTable tbody tr').each(function() {
+				// Get company name and POC data from local storage
+				var companyName = $(this).find('td:nth-child(1) a').text();
+				var pocData = localStorage.getItem(companyName);
+
+				// Set POC data in table cell
+				if (pocData !== null) {
+					$(this).find('td:nth-child(2)').text(pocData);
+				}
+			});
+		});
+
+		// Store POC data
+		$(document).on('blur', 'table#jobTable tbody tr td:nth-child(2)', function() {
+			// Get company name and POC data
+			var companyName = $(this).siblings('td:nth-child(1)').find('a').text();
+			var pocData = $(this).text();
+
+			// Store POC data in local storage
+			localStorage.setItem(companyName, pocData);
+		});
+
+		// Parse job listings
+		$(document).ready(function() {
+			// Walmart
+			$.get('https://careers.walmart.com/search-jobs', function(data) {
+				var $html = $('<div>').html(data);
+				var $jobList = $html.find('.job-list');
+
+				if ($jobList.length > 0) {
+					var $jobs = $jobList.find('.job-title-link');
+					var numJobs = $jobs.length;
+					$('#walmart_jobs').text(numJobs);
+				}
+			});
+
+			// Airbnb
+			$.get('https://careers.airbnb.com/positions/', function(data) {
+				var $html = $('<div>').html(data);
+				var $jobList = $html.find('.job-list');
+
+				if ($jobList.length > 0) {
+					var $jobs = $jobList.find('.job-item');
+					var numJobs = $jobs.length;
+					$('#airbnb_jobs').text(numJobs);
+				}
+			});
+
+			// Twilio
+			$.get('https://www.twilio.com/company/jobs', function(data) {
+				var $html = $('<div>').html(data);
+				var $jobList = $html.find('.job-list');
+
+				if ($jobList.length > 0) {
+					var $jobs = $jobList.find('.job-item');
+					var numJobs = $jobs.length;
+					$('#twilio_jobs').text(numJobs);
+				}
+			});
+
+			// Add more companies here
+		});
+	</script>
+
+
 </body>
 </html>
+
+
+
