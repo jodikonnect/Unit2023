@@ -5,62 +5,92 @@
 	<!-- Add your CSS file here -->
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<style>
+		body {
+			background-color: yellow;
+		}
 		h1 {
 			text-align: left;
 		}
+		table {
+			border-collapse: collapse;
+			margin-top: 20px;
+		}
+		th, td {
+			padding: 10px;
+			text-align: center;
+			border: 1px solid black;
+		}
+		img {
+			width: 50px;
+			height: 50px;
+		}
 	</style>
 </head>
-<body style="background-color: yellow;">
+<body>
 	<h1>Company Careers</h1>
-	
 	<table>
-		<tr>
-			<th>Company Name</th>
-			<th>Recruiter Name</th>
-			<th>Job Title</th>
-			<th>Recent Jobs Posted</th>
-		</tr>
-
-		<!-- Walmart -->
-		<tr>
-			<td>
-				<a href="https://careers.walmart.com" target="_blank">
-					<img src="walmart.svg" alt="Walmart Logo" />
-					<span>Walmart</span>
-				</a>
-			</td>
-			<td>John Smith</td>
-			<td>Software Engineer</td>
-			<td id="walmart-jobs"></td>
-		</tr>
-
-		<!-- Airbnb -->
-		<tr>
-			<td>
-				<a href="https://careers.airbnb.com" target="_blank">
-					<img src="airbnb.svg" alt="Airbnb Logo" />
-					<span>Airbnb</span>
-				</a>
-			</td>
-			<td>Jane Doe</td>
-			<td>Product Manager</td>
-			<td id="airbnb-jobs"></td>
-		</tr>
-
-		<!-- Twilio -->
-		<tr>
-			<td>
-				<a href="https://www.twilio.com/company/jobs" target="_blank">
-					<img src="twilio.svg" alt="Twilio Logo" />
-					<span>Twilio</span>
-				</a>
-			</td>
-			<td>Bob Johnson</td>
-			<td>Technical Writer</td>
-			<td id="twilio-jobs"></td>
-		</tr>
-
-		<!-- Add more table rows for other companies -->
+		<thead>
+			<tr>
+				<th>Company Name</th>
+				<th>Recruiter</th>
+				<th>Job Title</th>
+				<th>Company Logo</th>
+				<th>Recent Jobs Posted</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<a href="https://careers.walmart.com" target="_blank">
+						<span>Walmart</span>
+					</a>
+				</td>
+				<td>HR</td>
+				<td>Software Engineer</td>
+				<td>
+					<a href="https://careers.walmart.com" target="_blank">
+						<img src="walmart.svg" alt="Walmart Logo" />
+					</a>
+				</td>
+				<td>
+					<ul id="walmart-jobs"></ul>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="https://careers.airbnb.com/positions/" target="_blank">
+						<span>Airbnb</span>
+					</a>
+				</td>
+				<td>Recruiter A</td>
+				<td>Product Manager</td>
+				<td>
+					<a href="https://careers.airbnb.com/positions/" target="_blank">
+						<img src="airbnb.svg" alt="Airbnb Logo" />
+					</a>
+				</td>
+				<td>
+					<ul id="airbnb-jobs"></ul>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="https://www.twilio.com/company/jobs" target="_blank">
+						<span>Twilio</span>
+					</a>
+				</td>
+				<td>Recruiter B</td>
+				<td>Frontend Developer</td>
+				<td>
+					<a href="https://www.twilio.com/company/jobs" target="_blank">
+						<img src="twilio.svg" alt="Twilio Logo" />
+					</a>
+				</td>
+				<td>
+					<ul id="twilio-jobs"></ul>
+				</td>
+			</tr>
+		</tbody>
 	</table>
 
 	<!-- Add more list items for other companies -->
