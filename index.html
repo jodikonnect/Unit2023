@@ -11,88 +11,84 @@
 		table {
 			border-collapse: collapse;
 			width: 100%;
+			background-color: yellow;
 		}
 		th, td {
 			text-align: left;
 			padding: 8px;
 			border-bottom: 1px solid #ddd;
 		}
-		tr:hover {
-			background-color: #f5f5f5;
-		}
 		th {
-			background-color: #ffdd87;
+			background-color: #4CAF50;
+			color: white;
 			cursor: pointer;
+		}
+		th:hover {
+			background-color: #3e8e41;
 		}
 	</style>
 </head>
-<body style="background-color: yellow">
+<body>
 	<h1>Company Careers</h1>
-	
-	<table id="companyTable">
+	<table id="jobTable">
 		<thead>
 			<tr>
 				<th onclick="sortTable(0)">Company Name</th>
 				<th>Recruiter</th>
 				<th>Job Title</th>
 				<th>Company Logo</th>
-				<th>Recent Jobs Posted</th>
+				<th onclick="sortTable(3)">Recent Jobs Posted</th>
 			</tr>
 		</thead>
 		<tbody>
 			<!-- Walmart -->
 			<tr>
 				<td>
+					<a href="https://careers.walmart.com" target="_blank">Walmart</a>
+				</td>
+				<td>John Smith</td>
+				<td>Software Engineer</td>
+				<td>
 					<a href="https://careers.walmart.com" target="_blank">
-						Walmart
+						<img src="walmart.svg" alt="Walmart Logo" />
 					</a>
 				</td>
-				<td>John Doe</td>
-				<td>Software Engineer</td>
-				<td><a href="https://careers.walmart.com"><img src="walmart.svg" alt="Walmart Logo" width="50" height="50" /></a></td>
-				<td>
-					<ul id="walmartJobs">
-					</ul>
-				</td>
+				<td id="walmart_jobs"></td>
 			</tr>
 
 			<!-- Airbnb -->
 			<tr>
 				<td>
+					<a href="https://careers.airbnb.com/positions/" target="_blank">Airbnb</a>
+				</td>
+				<td>Jane Doe</td>
+				<td>Marketing Manager</td>
+				<td>
 					<a href="https://careers.airbnb.com/positions/" target="_blank">
-						Airbnb
+						<img src="airbnb.svg" alt="Airbnb Logo" />
 					</a>
 				</td>
-				<td>Jane Smith</td>
-				<td>Product Manager</td>
-				<td><a href="https://careers.airbnb.com/positions/"><img src="airbnb.svg" alt="Airbnb Logo" width="50" height="50" /></a></td>
-				<td>
-					<ul id="airbnbJobs">
-					</ul>
-				</td>
+				<td id="airbnb_jobs"></td>
 			</tr>
 
 			<!-- Twilio -->
 			<tr>
 				<td>
-					<a href="https://www.twilio.com/company/jobs" target="_blank">
-						Twilio
-					</a>
+					<a href="https://www.twilio.com/company/jobs" target="_blank">Twilio</a>
 				</td>
 				<td>Bob Johnson</td>
-				<td>Marketing Coordinator</td>
-				<td><a href="https://www.twilio.com/company/jobs"><img src="twilio.svg" alt="Twilio Logo" width="50" height="50" /></a></td>
+				<td>Product Manager</td>
 				<td>
-					<ul id="twilioJobs">
-					</ul>
+					<a href="https://www.twilio.com/company/jobs" target="_blank">
+						<img src="twilio.svg" alt="Twilio Logo" />
+					</a>
 				</td>
+				<td id="twilio_jobs"></td>
 			</tr>
-
-			<!-- Add more table rows for other companies -->
+			<!-- Add more list items for other companies -->
 		</tbody>
 	</table>
 
-	<!-- Add your JavaScript file here -->
 	<script src="script.js"></script>
 </body>
 </html>
