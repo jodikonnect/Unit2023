@@ -8,28 +8,40 @@
 		h1 {
 			text-align: left;
 		}
+
 		table {
 			border-collapse: collapse;
-			margin: auto;
+			width: 100%;
 		}
-		td, th {
-			border: 1px solid black;
-			padding: 10px;
-			text-align: center;
-			font-size: 16px;
-			font-family: Arial, sans-serif;
+
+		th, td {
+			text-align: left;
+			padding: 8px;
+			border: 1px solid #ddd;
 		}
+
+		tr:nth-child(even){background-color: #f2f2f2;}
+
 		th {
-			background-color: #ddd;
+			background-color: #4CAF50;
+			color: white;
 		}
-		img {
+
+		.logo {
 			height: 50px;
-			width: 50px;
+			width: auto;
+			margin-right: 10px;
+		}
+
+		.recent-jobs {
+			padding-top: 50px;
+			padding-left: 50px;
 		}
 	</style>
 </head>
 <body>
 	<h1>Company Careers</h1>
+	
 	<table>
 		<thead>
 			<tr>
@@ -44,45 +56,47 @@
 			<tr>
 				<td>
 					<a href="https://careers.walmart.com" target="_blank">
-						<img src="walmart.svg" alt="Walmart Logo" />
+						<img class="logo" src="walmart.svg" alt="Walmart Logo" />
 						<span>Walmart</span>
 					</a>
 				</td>
-				<td>Jane Doe</td>
+				<td>John Doe</td>
 				<td>Software Engineer</td>
-				<td id="walmart-jobs"></td>
+				<td class="recent-jobs"></td>
 			</tr>
 
 			<!-- Airbnb -->
 			<tr>
 				<td>
 					<a href="https://careers.airbnb.com" target="_blank">
-						<img src="airbnb.svg" alt="Airbnb Logo" />
+						<img class="logo" src="airbnb.svg" alt="Airbnb Logo" />
 						<span>Airbnb</span>
 					</a>
 				</td>
-				<td>John Smith</td>
-				<td>Marketing Manager</td>
-				<td></td>
+				<td>Jane Smith</td>
+				<td>Data Scientist</td>
+				<td class="recent-jobs"></td>
 			</tr>
 
 			<!-- Twilio -->
 			<tr>
 				<td>
 					<a href="https://www.twilio.com/company/jobs" target="_blank">
-						<img src="twilio.svg" alt="Twilio Logo" />
+						<img class="logo" src="twilio.svg" alt="Twilio Logo" />
 						<span>Twilio</span>
 					</a>
 				</td>
-				<td>Jane Smith</td>
-				<td>Product Manager</td>
-				<td></td>
+				<td>Bob Johnson</td>
+				<td>Technical Writer</td>
+				<td class="recent-jobs"></td>
 			</tr>
 		</tbody>
 	</table>
 
 	<!-- Add more list items for other companies -->
 
+	<!-- Add your JavaScript file here -->
 	<script src="script.js"></script>
+
 </body>
 </html>
