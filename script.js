@@ -1,35 +1,59 @@
-// Get the HTML elements we need to update
-const recentJobsList = document.getElementById("recent-jobs-list");
-const recentJobsHeader = document.getElementById("recent-jobs-header");
+const walmartJobsUrl = "https://careers.walmart.com/feed?locale=en_US&categories[]=10766&sort=rv.di.dt";
+const airbnbJobsUrl = "https://careers.airbnb.com/api/experiences/search?location=San%20Francisco%2C%20CA&offset=0&limit=5&type=Experiences&metadata=true&orderBy=published_at";
+const twilioJobsUrl = "https://api.twilio.com/2010-04-01/Accounts/YOUR_ACCOUNT_SID/Jobs/LastN.json?PageSize=5";
 
-// Retrieve the Walmart job data
-const walmartJobsUrl = "https://careers.walmart.com/search-jobs/api/retail/5082/1";
-fetch(walmartJobsUrl)
-  .then(response => response.json())
-  .then(data => {
-    // Get the most recent 5 jobs
-    const recentJobs = data.jobResults.slice(0, 5);
+function getWalmartJobs() {
+  fetch(walmartJobsUrl)
+    .then(response => response.text())
+    .then(data => {
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(data, "application/xml");
+      const items = xml.querySelectorAll("item");
+      let jobs = "";
+      items.forEach(item => {
+        const title = item.querySelector("title").textContent;
+        const link = item.querySelector("link").textContent;
+        jobs += `<li><a href="${link}" target="_blank">${title}</a></li>`;
+      });
+      document.getElementById("walmart-jobs").innerHTML = jobs;
+    });
+}
 
-    // Update the header to show the number of jobs retrieved
-    recentJobsHeader.innerText = `Recent Jobs Posted (${recentJobs.length})`;
+function getAirbnbJobs() {
+  fetch(airbnbJobsUrl)
+    .then(response => response.json())
+    .then(data => {
+      const items = data.data.experiences;
+      let jobs = "";
+      items.forEach(item => {
+        const title = item.metadata.title;
+        const link = `https://careers.airbnb.com/experiences/${item.id}/`;
+        jobs += `<li><a href="${link}" target="_blank">${title}</a></li>`;
+      });
+      document.getElementById("airbnb-jobs").innerHTML = jobs;
+    });
+}
 
-    // Create HTML for each recent job
-    const recentJobsHtml = recentJobs.map(job => {
-      const title = job.jobTitle;
-      const recruiter = job.recruiter;
-      const company = job.branding.brandName;
-      const jobUrl = `https://careers.walmart.com${job.jobViewUrl}`;
+function getTwilioJobs() {
+  const username = "YOUR_ACCOUNT_SID";
+  const password = "YOUR_AUTH_TOKEN";
+  const headers = new Headers();
+  headers.set("Authorization", "Basic " + btoa(username + ":" + password));
+  fetch(twilioJobsUrl, { headers: headers })
+    .then(response => response.json())
+    .then(data => {
+      const items = data.jobs;
+      let jobs = "";
+      items.forEach(item => {
+        const title = item.friendly_name;
+        const link = `https://www.twilio.com/console/taskrouter/workspaces/YOUR_WORKSPACE_SID/tasks/${item.sid}`;
+        jobs += `<li><a href="${link}" target="_blank">${title}</a></li>`;
+      });
+      document.getElementById("twilio-jobs").innerHTML = jobs;
+    });
+}
 
-      return `<li>
-                <span>${company}</span>
-                <span>${recruiter}</span>
-                <span><a href="${jobUrl}" target="_blank">${title}</a></span>
-              </li>`;
-    }).join("");
-
-    // Add the HTML to the recent jobs list
-    recentJobsList.innerHTML = recentJobsHtml;
-  })
-  .catch(error => {
-    console.error("Error retrieving Walmart job data:", error);
-  });
+// Call the functions to populate the job listings
+getWalmartJobs();
+getAirbnbJobs();
+getTwilioJobs();
