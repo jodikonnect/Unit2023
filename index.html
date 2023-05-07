@@ -5,33 +5,34 @@
 	<!-- Add your CSS file here -->
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<style>
-		body {
-			background-color: yellow;
-		}
 		h1 {
 			text-align: left;
 		}
 		table {
 			border-collapse: collapse;
-			margin-top: 20px;
+			width: 100%;
 		}
 		th, td {
-			padding: 10px;
-			text-align: center;
-			border: 1px solid black;
+			text-align: left;
+			padding: 8px;
+			border-bottom: 1px solid #ddd;
 		}
-		img {
-			width: 50px;
-			height: 50px;
+		tr:hover {
+			background-color: #f5f5f5;
+		}
+		th {
+			background-color: #ffdd87;
+			cursor: pointer;
 		}
 	</style>
 </head>
-<body>
+<body style="background-color: yellow">
 	<h1>Company Careers</h1>
-	<table>
+	
+	<table id="companyTable">
 		<thead>
 			<tr>
-				<th>Company Name</th>
+				<th onclick="sortTable(0)">Company Name</th>
 				<th>Recruiter</th>
 				<th>Job Title</th>
 				<th>Company Logo</th>
@@ -39,62 +40,59 @@
 			</tr>
 		</thead>
 		<tbody>
+			<!-- Walmart -->
 			<tr>
 				<td>
 					<a href="https://careers.walmart.com" target="_blank">
-						<span>Walmart</span>
+						Walmart
 					</a>
 				</td>
-				<td>HR</td>
+				<td>John Doe</td>
 				<td>Software Engineer</td>
+				<td><a href="https://careers.walmart.com"><img src="walmart.svg" alt="Walmart Logo" width="50" height="50" /></a></td>
 				<td>
-					<a href="https://careers.walmart.com" target="_blank">
-						<img src="walmart.svg" alt="Walmart Logo" />
-					</a>
-				</td>
-				<td>
-					<ul id="walmart-jobs"></ul>
+					<ul id="walmartJobs">
+					</ul>
 				</td>
 			</tr>
+
+			<!-- Airbnb -->
 			<tr>
 				<td>
 					<a href="https://careers.airbnb.com/positions/" target="_blank">
-						<span>Airbnb</span>
+						Airbnb
 					</a>
 				</td>
-				<td>Recruiter A</td>
+				<td>Jane Smith</td>
 				<td>Product Manager</td>
+				<td><a href="https://careers.airbnb.com/positions/"><img src="airbnb.svg" alt="Airbnb Logo" width="50" height="50" /></a></td>
 				<td>
-					<a href="https://careers.airbnb.com/positions/" target="_blank">
-						<img src="airbnb.svg" alt="Airbnb Logo" />
-					</a>
-				</td>
-				<td>
-					<ul id="airbnb-jobs"></ul>
+					<ul id="airbnbJobs">
+					</ul>
 				</td>
 			</tr>
+
+			<!-- Twilio -->
 			<tr>
 				<td>
 					<a href="https://www.twilio.com/company/jobs" target="_blank">
-						<span>Twilio</span>
+						Twilio
 					</a>
 				</td>
-				<td>Recruiter B</td>
-				<td>Frontend Developer</td>
+				<td>Bob Johnson</td>
+				<td>Marketing Coordinator</td>
+				<td><a href="https://www.twilio.com/company/jobs"><img src="twilio.svg" alt="Twilio Logo" width="50" height="50" /></a></td>
 				<td>
-					<a href="https://www.twilio.com/company/jobs" target="_blank">
-						<img src="twilio.svg" alt="Twilio Logo" />
-					</a>
-				</td>
-				<td>
-					<ul id="twilio-jobs"></ul>
+					<ul id="twilioJobs">
+					</ul>
 				</td>
 			</tr>
+
+			<!-- Add more table rows for other companies -->
 		</tbody>
 	</table>
 
-	<!-- Add more list items for other companies -->
-
+	<!-- Add your JavaScript file here -->
 	<script src="script.js"></script>
 </body>
 </html>
