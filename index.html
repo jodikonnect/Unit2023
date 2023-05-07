@@ -26,6 +26,11 @@
 		th:hover {
 			background-color: #3e8e41;
 		}
+        input {
+            border: none;
+            width: 100%;
+            background-color: inherit;
+        }
 	</style>
 </head>
 <body>
@@ -35,9 +40,10 @@
 			<tr>
 				<th onclick="sortTable(0)">Company Name</th>
 				<th>Recruiter</th>
+                <th>POC</th>
 				<th>Job Title</th>
 				<th>Company Logo</th>
-				<th onclick="sortTable(3)">Recent Jobs Posted</th>
+				<th onclick="sortTable(4)">Recent Jobs Posted</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -47,12 +53,11 @@
 					<a href="https://careers.walmart.com" target="_blank">Walmart</a>
 				</td>
 				<td>John Smith</td>
-				<td>Software Engineer</td>
-				<td>
+                <td><input type="text"></td>
+				<td></td>
 					<a href="https://careers.walmart.com" target="_blank">
 						<img src="walmart.svg" alt="Walmart Logo" />
 					</a>
-				</td>
 				<td id="walmart_jobs"></td>
 			</tr>
 
@@ -62,7 +67,8 @@
 					<a href="https://careers.airbnb.com/positions/" target="_blank">Airbnb</a>
 				</td>
 				<td>Jane Doe</td>
-				<td>Marketing Manager</td>
+                <td><input type="text"></td>
+				<td></td>
 				<td>
 					<a href="https://careers.airbnb.com/positions/" target="_blank">
 						<img src="airbnb.svg" alt="Airbnb Logo" />
@@ -77,7 +83,8 @@
 					<a href="https://www.twilio.com/company/jobs" target="_blank">Twilio</a>
 				</td>
 				<td>Bob Johnson</td>
-				<td>Product Manager</td>
+                <td><input type="text"></td>
+				<td></td>
 				<td>
 					<a href="https://www.twilio.com/company/jobs" target="_blank">
 						<img src="twilio.svg" alt="Twilio Logo" />
